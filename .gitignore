@@ -1,5 +1,8 @@
-tmp/*
-notes.pvt.txt
-[Cc]onfig/core.yml
-[Cc]onfig/database.yml
-!empty
+.DS_Store
+.project
+.idea
+nbproject
+.settings
+node_modules
+logs
+config/runtime.json
