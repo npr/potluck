@@ -6,5 +6,6 @@ nbproject
 node_modules
 logs
 config/runtime.json
+config/stage.yaml
 config/jnelson.yaml
 config/irakli.yaml
