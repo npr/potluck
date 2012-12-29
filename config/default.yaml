@@ -1,4 +1,5 @@
 app:
   port: 3000
   pub_dir: "/public"
+  max_resources_num: 3
   cookie_secret: "your secret key salt goes here"

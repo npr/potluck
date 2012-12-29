@@ -1,4 +1,4 @@
-<form class="form-horizontal">
+<form class="form-horizontal" action="/submission/save" method="post">
 
     <!-- General submission information section -->
     <div class="control-group">
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label" for="inputTheme">Call-Out:</label>
+        <label class="control-label" for="inputTheme">Call-Out</label>
         <div class="controls">
             <select id="inputTheme" class="select2">
                 {{#callouts}}
@@ -23,7 +23,57 @@
             </select>
         </div>
     </div>
+    <div class="control-group">
+        <label class="control-label" for="inputMessage">Message</label>
+        <div class="controls">
+            <textarea rows="5" id="inputMessage" placeholder="Short Message"></textarea>
+        </div>
+    </div>
     <!-- End of general submission information section -->
+
+    <!-- File uploads section -->
+    {{#resources}}
+        <fieldset>
+            <legend>File Upload #{{num}}:</legend>
+
+            <div class="control-group">
+                <label class="control-label" for="inputFile{{num}}">File</label>
+                <div class="controls">
+                    <input type="file" id="inputFile{{num}}">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputCaption{{num}}">Caption</label>
+                <div class="controls">
+                    <input type="text" id="inputCaption{{num}}" placeholder="Caption describing the upload">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputCopyright{{num}}">Copyright</label>
+                <div class="controls">
+                    <input type="text" id="inputCopyright{{num}}" placeholder="Copyright Info">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputLocation{{num}}">Location</label>
+                <div class="controls">
+                    <input type="text" id="inputLocation{{num}}" placeholder="Location Info">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="inputDate{{num}}">Date</label>
+                <div class="controls">
+                    <input type="text" id="inputDate{{num}}">
+                </div>
+            </div>
+
+        </fieldset>
+    {{/resources}}
+    <!-- End of file uploads section -->
 
     <div class="control-group">
         <div class="controls">
@@ -45,4 +95,10 @@
 2. Contact Email – optional, Text field
 3. Theme/Call-out - auto–populated (depending how you got there) with an option to change to any active call-out (up to latest 10)
 
+
+5.1. Caption – optional, free-form text field
+5.2. Copyright – optional, free-form text field
+5.3. Location – optional, free-form text field
+5.4. Date – optional, a date-picker widget
+5.5. Consent checkbox which users need to check to indicate that they do indeed have the right to distribute the content they are submitting.
 -->
