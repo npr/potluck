@@ -2,4 +2,5 @@ app:
   port: 3000
   pub_dir: "/public"
   max_resources_num: 3
+  submission_msg_char_limit: 300
   cookie_secret: "your secret key salt goes here"

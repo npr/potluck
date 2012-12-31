@@ -1,16 +1,24 @@
+<script type="text/javascript"> var potluck_submission_msg_char_limit = {{submission_msg_char_limit}}; </script>
+
 <form class="form-horizontal" action="/submission/save" method="post">
 
     <!-- General submission information section -->
     <div class="control-group">
         <label class="control-label" for="inputName">Your Name</label>
         <div class="controls">
-            <input type="text" id="inputName" placeholder="Your Full Name">
+            <div class="input-prepend">
+                <span class="add-on"><i class="icon-user"></i></span>
+                <input type="text" id="inputName" placeholder="Your Full Name" required>
+            </div>
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="inputEmail">Your Email</label>
         <div class="controls">
-            <input type="text" id="inputEmail" placeholder="Email">
+            <div class="input-prepend">
+                <span class="add-on"><i class="icon-envelope"></i></span>
+                <input type="text" id="inputEmail" placeholder="Email">
+            </div>
         </div>
     </div>
     <div class="control-group">
@@ -26,13 +34,18 @@
     <div class="control-group">
         <label class="control-label" for="inputTags">Tags</label>
         <div class="controls">
-            <input type="text" id="inputTags" placeholder="Tags describing the submission">
+            <div class="input-prepend">
+                <span class="add-on"><i class="icon-tags"></i></span>
+                <input type="text" id="inputTags" placeholder="Tags describing the submission">
+            </div>
+
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="inputMessage">Message</label>
         <div class="controls">
             <textarea rows="5" id="inputMessage" placeholder="Short Message"></textarea>
+            <div><span id="remainingCharacters"></span> characters remaining.</div>
         </div>
     </div>
     <!-- End of general submission information section -->
@@ -87,7 +100,7 @@
                 <input type="checkbox"> I hereby confirm that I am the copyright holder on the submitted content or have
                 all legal rights to submit the content.
             </label>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
 

@@ -14,3 +14,71 @@ html, body {
     background-color: white;
     min-height: 100%;
 }
+
+/* Metro Checkbox http://aozora.github.com/bootmetro/base-css.html#forms
+-------------------------------------------------- */
+
+/**
+label.checkbox input[type=checkbox],
+label.checkbox input[type=checkbox] ~ span.metro-checkbox,
+label.checkbox input[type=checkbox] ~ span.metro-checkbox::before,
+label.checkbox input[type=checkbox] ~ span.metro-checkbox::after {
+    vertical-align: middle;
+    display: inline-block;
+}
+label.checkbox input[type=checkbox] {
+    position: absolute;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+}
+label.checkbox input[type=checkbox] ~ span.metro-checkbox {
+    padding-left: 36px;
+    padding-top: 4px;
+}
+
+label.checkbox input[type=checkbox]:checked ~ span.metro-checkbox::after {
+    border: 2px solid #BABABA;
+    background-color: #FFF;
+    font-family: 'IcoMoon';
+    content: "\e20c";
+    color: #202020;
+    font-size: 16px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    z-index: 1000;
+}
+label.checkbox input[type=checkbox] ~ span.metro-checkbox::after {
+    border: 2px solid #BABABA;
+    background-color: #FFF;
+    font-family: 'IcoMoon';
+    content: "\2003";
+    font-size: 16px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    z-index: 1000;
+}
+
+label.checkbox input[type=checkbox]:not(:checked):disabled ~ span.metro-checkbox::after,
+label.checkbox:hover input[type=checkbox]:disabled ~ span.metro-checkbox::after,
+label.checkbox input[type=checkbox]:disabled ~ span.metro-checkbox::after {
+    cursor: default;
+    background: #BABABA;
+}
+label.checkbox input[type=checkbox]:disabled ~ span.metro-checkbox::after {
+    color: #4c4c4c;
+}
+
+**/
+
+/* End Metro Checkbox
+-------------------------------------------------- */
+
+
+
