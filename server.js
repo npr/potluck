@@ -22,7 +22,7 @@ app.configure(function() {
   app.set('view engine', 'handlebars');
   app.engine('handlebars', hbs.__express);
 
-  app.use(express.bodyParser());
+  app.use(express.bodyParser({ keepExtensions: true, uploadDir: '/tmp/files' }));
   app.use(express.methodOverride());
   app.use(express.query());
   app.use(express.cookieParser(CONF.app.cookie_secret));

@@ -1,6 +1,6 @@
 <script type="text/javascript"> var potluck_submission_msg_char_limit = {{submission_msg_char_limit}}; </script>
 
-<form class="form-horizontal" action="/submission/save" method="post">
+<form class="form-horizontal" action="/submissions/save" method="post" enctype="multipart/form-data">
 
     <!-- General submission information section -->
     <div class="control-group">
@@ -8,7 +8,7 @@
         <div class="controls">
             <div class="input-prepend">
                 <span class="add-on"><i class="icon-user"></i></span>
-                <input type="text" id="inputName" placeholder="Your Full Name" required>
+                <input type="text" id="inputName" name="name" placeholder="Your Full Name" required>
             </div>
         </div>
     </div>
@@ -17,14 +17,14 @@
         <div class="controls">
             <div class="input-prepend">
                 <span class="add-on"><i class="icon-envelope"></i></span>
-                <input type="text" id="inputEmail" placeholder="Email">
+                <input type="text" id="inputEmail" name="email" placeholder="Email">
             </div>
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="inputTheme">Call-Out</label>
         <div class="controls">
-            <select id="inputTheme" class="select2">
+            <select id="inputTheme" name="theme" class="select2">
                 {{#callouts}}
                 <option value="{{code}}">{{title}}</option>
                 {{/callouts}}
@@ -36,7 +36,7 @@
         <div class="controls">
             <div class="input-prepend">
                 <span class="add-on"><i class="icon-tags"></i></span>
-                <input type="text" id="inputTags" placeholder="Tags describing the submission">
+                <input type="text" id="inputTags" name="tags" placeholder="Tags describing the submission">
             </div>
 
         </div>
@@ -44,7 +44,7 @@
     <div class="control-group">
         <label class="control-label" for="inputMessage">Message</label>
         <div class="controls">
-            <textarea rows="5" id="inputMessage" placeholder="Short Message"></textarea>
+            <textarea rows="5" id="inputMessage" name="message" placeholder="Short Message"></textarea>
             <div><span id="remainingCharacters"></span> characters remaining.</div>
         </div>
     </div>
@@ -58,14 +58,14 @@
             <div class="control-group">
                 <label class="control-label" for="inputFile{{num}}">File</label>
                 <div class="controls">
-                    <input type="file" id="inputFile{{num}}">
+                    <input type="file" id="inputFile{{num}}" name="file_uploaded_{{num}}">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputCaption{{num}}">Caption</label>
                 <div class="controls">
-                    <input type="text" id="inputCaption{{num}}" placeholder="Caption describing the upload">
+                    <input type="text" id="inputCaption{{num}}" name="caption{{num}}" placeholder="Caption describing the upload">
                 </div>
             </div>
 
