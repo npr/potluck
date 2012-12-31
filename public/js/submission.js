@@ -11,6 +11,12 @@
 
     });
 
+    /**
+     * Uses code by Ed Rackham:
+     * http://edrackham.com/javascript/how-to-create-a-textarea-character-counter-limiter-using-jquery/
+     *
+     * @param characterLimit
+     */
     function characteCounterLimiter(characterLimit) {
 
         $('#remainingCharacters').html(characterLimit);
