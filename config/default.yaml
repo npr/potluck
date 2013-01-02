@@ -4,3 +4,10 @@ app:
   max_resources_num: 3
   submission_msg_char_limit: 500
   cookie_secret: "your secret key salt goes here"
+aws:
+  accessKeyId: AmazonAWSAccessKeyId
+  secretKey: AmazonAWSSecretAccessKey
+  bucket: AmazonS3Bucket
+  S3region: amazon.US_EAST_1
+  SQSregion: amazon.US_EAST_1
+  SQSQueueName: potluck_stage
