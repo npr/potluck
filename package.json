@@ -19,5 +19,6 @@
     ,"less"               : "1.x"
     ,"less-middleware"    : ""
     ,"underscore"         : "1.x"
+    ,"awssum"             : "0.12.x"
   }
 }
