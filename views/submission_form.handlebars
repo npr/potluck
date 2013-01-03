@@ -58,35 +58,35 @@
             <div class="control-group">
                 <label class="control-label" for="inputFile{{num}}">File</label>
                 <div class="controls">
-                    <input type="file" id="inputFile{{num}}" name="file_uploaded_{{num}}">
+                    <input type="file" id="inputFile{{num}}" name="files[{{num}}]">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputCaption{{num}}">Caption</label>
                 <div class="controls">
-                    <input type="text" id="inputCaption{{num}}" name="caption{{num}}" placeholder="Caption describing the upload">
+                    <input type="text" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputCopyright{{num}}">Copyright</label>
                 <div class="controls">
-                    <input type="text" id="inputCopyright{{num}}" placeholder="Copyright Info">
+                    <input type="text" id="inputCopyright{{num}}" name="copyright[{{num}}]" placeholder="Copyright Info">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputLocation{{num}}">Location</label>
                 <div class="controls">
-                    <input type="text" id="inputLocation{{num}}" placeholder="Location Info">
+                    <input type="text" id="inputLocation{{num}}" name="location[{{num}}]" placeholder="Location Info">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputDate{{num}}">Date</label>
                 <div class="controls date">
-                    <input type="text" id="inputDate{{num}}" class="datepicker">
+                    <input type="text" id="inputDate{{num}}" name="date[{{date}}]" class="datepicker">
                 </div>
             </div>
 
