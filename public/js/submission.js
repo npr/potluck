@@ -1,6 +1,12 @@
 ;(function($){
     $(function() {
 
+        /*
+        $("#inputTags").select2({
+            tags:["npr", "world", "news"],
+            tokenSeparators: [",", ";", " "]});
+        */
+
         $(".select2").select2();
         $(".datepicker").datepicker();
 

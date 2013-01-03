@@ -1,18 +1,19 @@
 {
-  "name" : "NodeJsBootstrap"
-  ,"version" : "0.4.1"
-  ,"description" : "Node/Express.js Template with Twitter Bootstrap2 and other goodies"
+  "name" : "NPRPotluck"
+  ,"version" : "0.1.0"
+  ,"description" : "NPR Potluck"
   ,"author" : "Irakli Nadareishvili, John Nelson"
   ,"main" : "./server.js"
   ,"repository": {
       "type": "git",
-      "url": "https://github.com/inadarei/nodebootstrap"
+      "url": "https://github.com/npr/potluck"
   }
   ,"engines": {
       "node": ">=0.8.8"
   }
   ,"dependencies": {
-    "yaml"                : ""
+    "fmt"                 : "0.4.x"
+    ,"yaml"               : ""
     ,"express"            : "3.x"
     ,"config"             : ""
     ,"hbs"                : "1.x"
