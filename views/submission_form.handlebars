@@ -4,12 +4,12 @@
 
     <!-- General submission information section -->
     <div class="control-group">
-        <label class="control-label" for="inputTheme">Call-Out</label>
+        <label class="control-label" for="inputTheme">Stories</label>
         <div class="controls">
             <select id="inputTheme" name="theme" class="select2">
-                {{#callouts}}
-                <option value="{{code}}">{{title}}</option>
-                {{/callouts}}
+                {{#themes}}
+                <option value="{{id}}">{{title}}</option>
+                {{/themes}}
             </select>
         </div>
     </div>

@@ -9,6 +9,8 @@ aws:
   accessKeyId: AmazonAWSAccessKeyId
   secretKey: AmazonAWSSecretAccessKey
   bucket: AmazonS3Bucket
+  cacheTTL: 86400
+  cdnDomain: "potluckstage.s3.amazonaws.com"
   S3region: US_EAST_1
   SQSregion: US_EAST_1
   SQSQueueName: potluck_stage

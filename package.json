@@ -21,5 +21,7 @@
     ,"less-middleware"    : ""
     ,"underscore"         : "1.x"
     ,"awssum"             : "0.12.x"
+    ,"mysql"              : "2.x"
+    ,"async"              : "0.1.x"
   }
 }
