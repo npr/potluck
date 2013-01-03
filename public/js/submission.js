@@ -1,7 +1,7 @@
 ;(function($){
     $(function() {
 
-        /*
+        /**
         $("#inputTags").select2({
             tags:["npr", "world", "news"],
             tokenSeparators: [",", ";", " "]});
