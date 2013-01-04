@@ -78,7 +78,9 @@
             <div class="control-group">
                 <label class="control-label" for="inputCaption{{num}}">Caption</label>
                 <div class="controls">
-                    <input type="text" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload" required>
+                    <textarea rows="5" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload" required></textarea>
+                    <div><span id="remainingCharacters{{num}}"></span> characters remaining.</div>
+                    <!-- input type="text" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload" required-->
                 </div>
             </div>
 

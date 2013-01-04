@@ -1,0 +1,50 @@
+<!-- Carousel
+    ================================================== -->
+<div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+        {{#themes}}
+        <div class="item {{#if active}}active{{/if}}">
+            <img src="{{bkg_img_url}}" alt="">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>{{title}}</h1>
+                    <p class="lead">{{description}}</p>
+                    <a class="btn btn-large btn-primary" href="potluck-story.html">submit photo</a>
+                </div>
+            </div>
+        </div>
+        {{/themes}}
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+</div><!-- /.carousel -->
+
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+    <h1 class="recent-projects">Recent Projects</h1>
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        {{#themes_with_assets}}
+        <div class="span4 project-container">
+            <img class="img" src="{{url}}">
+            <h2>{{title}}</h2>
+            <p>{{description}}</p>
+            <p><a class="btn" href="/themes/{{id}}/submissions/new">submit photo »</a></p>
+        </div><!-- /.span4 -->
+        {{/themes_with_assets}}
+    </div><!-- /.row -->
+
+    <!-- FOOTER -->
+    <div class="row copyright">
+        <div class="span10 offset1">
+            <p class="muted credit">© 2013 National Public Radio. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+        </div>
+    </div>
+
+</div><!-- /.container -->

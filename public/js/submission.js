@@ -10,11 +10,10 @@
         $(".select2").select2();
         $(".datepicker").datepicker();
 
-        // @TODO message submission is not yet implemented
-        // Display a nice character limit indicator for the short message field
-        // var characterLimit = 250; //default value
-        // if (typeof potluck_submission_msg_char_limit !== 'undefined') { characterLimit =  potluck_submission_msg_char_limit; }
-        // characteCounterLimiter(characterLimit);
+        // Display a nice character limit indicator for the caption field
+        var characterLimit = 250; //default value
+        if (typeof potluck_submission_msg_char_limit !== 'undefined') { characterLimit =  potluck_submission_msg_char_limit; }
+        characteCounterLimiter(characterLimit);
 
     });
 
@@ -26,9 +25,9 @@
      */
     function characteCounterLimiter(characterLimit) {
 
-        $('#remainingCharacters').html(characterLimit);
+        $('#remainingCharacters0').html(characterLimit);
 
-        $('#inputMessage').bind('keyup', function(){
+        $('#inputCaption0').bind('keyup', function(){
             var charactersUsed = $(this).val().length;
 
             if(charactersUsed > characterLimit){
@@ -39,7 +38,7 @@
 
             var charactersRemaining = characterLimit - charactersUsed;
 
-            $('#remainingCharacters').html(charactersRemaining);
+            $('#remainingCharacters0').html(charactersRemaining);
         });
     }
 })(jQuery);

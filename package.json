@@ -23,5 +23,6 @@
     ,"awssum"             : "0.12.x"
     ,"mysql"              : "2.x"
     ,"async"              : "0.1.x"
+    ,"moment"             : "1.7.x"
   }
 }

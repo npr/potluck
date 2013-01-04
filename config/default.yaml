@@ -3,7 +3,7 @@ app:
   name: "NPR Potluck"
   pub_dir: "/public"
   max_resources_num: 1
-  submission_msg_char_limit: 500
+  submission_msg_char_limit: 700
   cookie_secret: "your secret key salt goes here"
 aws:
   accountID: AmazonAccountId

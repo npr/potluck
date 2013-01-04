@@ -1,13 +1,5 @@
 # ************************************************************
-# Sequel Pro SQL dump
-# Version 3408
-#
-# http://www.sequelpro.com/
-# http://code.google.com/p/sequel-pro/
-#
-# Host: potluck.clfqth593hf5.us-east-1.rds.amazonaws.com (MySQL 5.5.27-log)
-# Database: potluckstage
-# Generation Time: 2012-12-29 17:55:10 +0000
+# Potluck Database
 # ************************************************************
 
 
@@ -53,7 +45,7 @@ CREATE TABLE `assets_types` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `assets_types` WRITE;
 /*!40000 ALTER TABLE `assets_types` DISABLE KEYS */;
@@ -83,7 +75,7 @@ CREATE TABLE `submissions` (
   PRIMARY KEY (`id`),
   KEY `submissions_themes_fk` (`theme_id`),
   CONSTRAINT `submissions_themes_fk` FOREIGN KEY (`theme_id`) REFERENCES `themes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -99,7 +91,7 @@ CREATE TABLE `tags` (
   PRIMARY KEY (`id`),
   KEY `tags_vocabularies_fk` (`vocabulary_id`),
   CONSTRAINT `tags_vocabularies_fk` FOREIGN KEY (`vocabulary_id`) REFERENCES `vocabularies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -112,9 +104,24 @@ CREATE TABLE `themes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(512) NOT NULL DEFAULT '',
   `description` varchar(4000) DEFAULT NULL,
+  `date_from` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_to` timestamp NULL DEFAULT NULL,
+  `bkg_img_url` varchar(4000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `themes` WRITE;
+/*!40000 ALTER TABLE `themes` DISABLE KEYS */;
+
+INSERT INTO `themes` (`id`, `title`, `description`, `date_from`, `date_to`, `bkg_img_url`)
+VALUES
+	(1,'Power','Each year, the Prix Pictet is awarded to a professional photographer who has best captured a particular theme in sustainability. Past themes have been \"water,\" \"earth\" and \"growth.\" This year, the theme is \"power.\" What does that mean to you? Is it the power of nature over man? The power of politics? The power it takes to generate electricity? Share, in one photos, what \"Power\" means to you. ','2012-12-01 01:01:01','2015-01-01 00:00:00',NULL),
+	(2,'Burning House','?The things you own end up owning you. It\'s only after you lose everything that you\'re free to do anything.? ? Chuck Palahniuk, Fight Club\n\nPeople say things are just things. But what are the things you couldn\'t live without? Say your house is on fire. What do you grab before you run to safety? Show us.','2012-01-01 00:00:00','2015-01-01 00:00:00',NULL),
+	(3,'Superstorm Sandy','How is Hurricane Sandy affecting you? Have you seen something that others need to see? Share your experience here and watch the story unfold.','2012-11-05 00:00:00','2012-11-18 00:00:00',NULL),
+	(4,'Vintage Halloween','Halloween costumes have gotten pretty advanced. But have you ever looked back at old photos of those early costumes? We want to see the ones in your family\'s photo albums. Share them with us, along with a story.\n','2012-10-01 00:00:00','2012-10-30 00:00:00',NULL);
+
+/*!40000 ALTER TABLE `themes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table vocabularies
@@ -126,7 +133,7 @@ CREATE TABLE `vocabularies` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `vocabularies` WRITE;
 /*!40000 ALTER TABLE `vocabularies` DISABLE KEYS */;
