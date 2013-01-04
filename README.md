@@ -1,7 +1,8 @@
 # Project Potluck
 
-Developed by NPR Digital Media with [Node.js](http://nodejs.org), [Express.js](http://expressjs.com),
-[Node Bootstrap](http://nodebootstrap.org) and love for Open Source Software + Journalism.
+Developed by [NPR](http://npr.org) [Digital Media](http://twitter.com/nprtechteam)
+with [Node.js](http://nodejs.org), [Express.js](http://expressjs.com), [Node Bootstrap](http://nodebootstrap.org)
+and lots of love for Open Source Software + Journalism.
 
 ## License
 
