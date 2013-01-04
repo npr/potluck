@@ -10,10 +10,11 @@
         $(".select2").select2();
         $(".datepicker").datepicker();
 
+        // @TODO message submission is not yet implemented
         // Display a nice character limit indicator for the short message field
-        var characterLimit = 250; //default value
-        if (typeof potluck_submission_msg_char_limit !== 'undefined') { characterLimit =  potluck_submission_msg_char_limit; }
-        characteCounterLimiter(characterLimit);
+        // var characterLimit = 250; //default value
+        // if (typeof potluck_submission_msg_char_limit !== 'undefined') { characterLimit =  potluck_submission_msg_char_limit; }
+        // characteCounterLimiter(characterLimit);
 
     });
 

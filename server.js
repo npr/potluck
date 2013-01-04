@@ -8,6 +8,9 @@ var util = require('util')
   , less = require('less')
   , hbs = require('hbs');
 
+//-- Useful extension to HBS
+require('./lib/handlebars-helpers.js')(hbs, __dirname + '/views/partials');
+
 var pub_dir = CONF.app.pub_dir;
 if (pub_dir[0] != '/') { pub_dir = '/' + pub_dir; } // humans are forgetful
 pub_dir = __dirname + pub_dir;
@@ -22,11 +25,13 @@ app.configure(function() {
   app.set('view engine', 'handlebars');
   app.engine('handlebars', hbs.__express);
 
+
   app.use(express.bodyParser({ keepExtensions: true, uploadDir: '/tmp/files' }));
   app.use(express.methodOverride());
   app.use(express.query());
   app.use(express.cookieParser(CONF.app.cookie_secret));
-  app.use(express.session());
+  app.use(express.session({secret: CONF.app.cookie_secret}));
+  //app.use(express.cookieSession({secret: CONF.app.cookie_secret}));
   app.use(app.router);
   //app.use(express.responseTime());
 

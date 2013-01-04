@@ -1,14 +1,20 @@
 <script type="text/javascript"> var potluck_submission_msg_char_limit = {{submission_msg_char_limit}}; </script>
 
+{{#forwardedUpload}}
+<div class="alert">
+    <strong>Success!</strong> Thank you for your submission.
+</div>
+{{/forwardedUpload}}
+
 <form class="form-horizontal" action="/submissions/save" method="post" enctype="multipart/form-data">
 
     <!-- General submission information section -->
     <div class="control-group">
-        <label class="control-label" for="inputTheme">Stories</label>
+        <label class="control-label" for="inputTheme">Submitting to:</label>
         <div class="controls">
             <select id="inputTheme" name="theme" class="select2">
                 {{#themes}}
-                <option value="{{id}}">{{title}}</option>
+                    <option value="{{id}}" {{#if active}}selected{{/if}} >{{title}}</option>
                 {{/themes}}
             </select>
         </div>
@@ -31,41 +37,48 @@
             </div>
         </div>
     </div>
-    <div class="control-group">
-        <label class="control-label" for="inputTags">Tags</label>
-        <div class="controls">
-            <div class="input-prepend">
-                <span class="add-on"><i class="icon-tags"></i></span>
-                <input type="text" id="inputTags" name="tags" placeholder="Tags describing the submission">
-            </div>
 
+    {{#NotYetImplemented}}
+
+        <div class="control-group">
+            <label class="control-label" for="inputTags">Tags</label>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-tags"></i></span>
+                    <input type="text" id="inputTags" name="tags" placeholder="Tags describing the submission">
+                </div>
+
+            </div>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label" for="inputMessage">Message</label>
-        <div class="controls">
-            <textarea rows="5" id="inputMessage" name="message" placeholder="Short Message"></textarea>
-            <div><span id="remainingCharacters"></span> characters remaining.</div>
+
+        <div class="control-group">
+            <label class="control-label" for="inputMessage">Message</label>
+            <div class="controls">
+                <textarea rows="5" id="inputMessage" name="message" placeholder="Short Message"></textarea>
+                <div><span id="remainingCharacters"></span> characters remaining.</div>
+            </div>
         </div>
-    </div>
+
+    {{/NotYetImplemented}}
+
     <!-- End of general submission information section -->
 
     <!-- File uploads section -->
     {{#resources}}
         <fieldset>
-            <legend>File Upload #{{num}}:</legend>
+            <!-- legend>File Upload #{{num}}:</legend -->
 
             <div class="control-group">
                 <label class="control-label" for="inputFile{{num}}">File</label>
                 <div class="controls">
-                    <input type="file" id="inputFile{{num}}" name="files[{{num}}]">
+                    <input type="file" id="inputFile{{num}}" name="assets[{{num}}]" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputCaption{{num}}">Caption</label>
                 <div class="controls">
-                    <input type="text" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload">
+                    <input type="text" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload" required>
                 </div>
             </div>
 
@@ -97,27 +110,13 @@
     <div class="control-group">
         <div class="controls">
             <label class="checkbox">
-                <input type="checkbox"> I hereby confirm that I am the copyright holder on the submitted content or have
+                <input type="checkbox" required> I hereby confirm that I am the copyright holder on the submitted content or have
                 all legal rights to submit the content.
             </label>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-large btn-primary">Submit</button>
         </div>
     </div>
 
 
 
 </form>
-
-<!--
-
-1. Contact Name – required. Text field
-2. Contact Email – optional, Text field
-3. Theme/Call-out - auto–populated (depending how you got there) with an option to change to any active call-out (up to latest 10)
-
-
-5.1. Caption – optional, free-form text field
-5.2. Copyright – optional, free-form text field
-5.3. Location – optional, free-form text field
-5.4. Date – optional, a date-picker widget
-5.5. Consent checkbox which users need to check to indicate that they do indeed have the right to distribute the content they are submitting.
--->

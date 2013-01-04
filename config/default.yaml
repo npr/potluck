@@ -1,5 +1,6 @@
 app:
   port: 3000
+  name: "NPR Potluck"
   pub_dir: "/public"
   max_resources_num: 1
   submission_msg_char_limit: 500
