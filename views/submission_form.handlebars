@@ -10,9 +10,9 @@
 
     <!-- General submission information section -->
     <div class="control-group">
-        <label class="control-label" for="inputTheme">Submitting to:</label>
+        <label class="control-label" for="inputTheme">Submitting to Project:</label>
         <div class="controls">
-            <select id="inputTheme" name="theme" class="select2">
+            <select id="inputTheme" name="theme" class="select2" style="width: 90%">
                 {{#themes}}
                     <option value="{{id}}" {{#if active}}selected{{/if}} >{{title}}</option>
                 {{/themes}}
@@ -38,14 +38,14 @@
         </div>
     </div>
 
-    {{#NotYetImplemented}}
 
+    {{#NotYetImplemented}}
         <div class="control-group">
             <label class="control-label" for="inputTags">Tags</label>
             <div class="controls">
                 <div class="input-prepend">
                     <span class="add-on"><i class="icon-tags"></i></span>
-                    <input type="text" id="inputTags" name="tags" placeholder="Tags describing the submission">
+                    <input type="text" id="inputTags" name="tags" placeholder="Tags describing the submission" style="width: 90%">
                 </div>
 
             </div>

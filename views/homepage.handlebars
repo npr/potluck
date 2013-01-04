@@ -9,7 +9,7 @@
                 <div class="carousel-caption">
                     <h1>{{title}}</h1>
                     <p class="lead">{{description}}</p>
-                    <a class="btn btn-large btn-primary" href="potluck-story.html">submit photo</a>
+                    <a class="btn btn-large btn-primary" href="/themes/{{id}}/submissions/new">submit photo</a>
                 </div>
             </div>
         </div>
@@ -29,16 +29,24 @@
     <h1 class="recent-projects">Recent Projects</h1>
 
     <!-- Three columns of text below the carousel -->
-    <div class="row">
-        {{#themes_with_assets}}
-        <div class="span4 project-container">
-            <img class="img" src="{{url}}">
-            <h2>{{title}}</h2>
-            <p>{{description}}</p>
-            <p><a class="btn" href="/themes/{{id}}/submissions/new">submit photo »</a></p>
-        </div><!-- /.span4 -->
-        {{/themes_with_assets}}
-    </div><!-- /.row -->
+    {{#themes_with_assets}}
+        {{#if colStart}}
+        <div class="row">
+        {{/if}}
+
+            <div class="span4 project-container">
+                <a href="/themes/{{theme_id}}/submissions"><img class="img" src="{{url}}"></a>
+                <h2>{{title}}</h2>
+                <p>{{description}}</p>
+                {{#if active}}
+                    <p><a class="btn" href="/themes/{{theme_id}}/submissions/new">submit photo »</a></p>
+                {{/if}}
+            </div><!-- /.span4 -->
+        {{#if colEnd}}
+        </div><!-- /.row -->
+        {{/if}}
+    {{/themes_with_assets}}
+
 
     <!-- FOOTER -->
     <div class="row copyright">

@@ -166,8 +166,20 @@ html {
 .marketing .span4 p {
     margin-left: 10px;
     margin-right: 10px;
+    min-height: 120px;
 }
 
+/* Submission browser
+------------------------- */
+
+.photo-browser {
+    margin: 5px 5% 0 5%;
+    width: 90%;
+    max-width: 1000px;
+    padding: 2%;
+    background-color: white;
+    min-height: 100%;
+}
 
 /* Featurettes
 ------------------------- */
