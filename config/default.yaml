@@ -15,3 +15,8 @@ aws:
   S3region: US_EAST_1
   SQSregion: US_EAST_1
   SQSQueueName: potluck_stage
+mysql:
+  host: "your.db.host.com"
+  user: root
+  pass: password
+  database: databaseName
