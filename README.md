@@ -1,13 +1,13 @@
 # Project Potluck
 
-Developed by NPR Digital Media with [Node.js](http://nodejs.org), [Express.js](http://expressjs.org),
+Developed by NPR Digital Media with [Node.js](http://nodejs.org), [Express.js](http://expressjs.com),
 [Node Bootstrap](http://nodebootstrap.org) and love for Open Source Software + Journalism.
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2012 NPR
+Copyright (c) 2012-2013 NPR
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
