@@ -2,7 +2,8 @@
 
 Built at [NPR](http://npr.org) [Digital Media](http://twitter.com/nprtechteam) during an
 NPR [Serendipity hackathon](http://www.niemanlab.org/2011/08/npr-tries-something-new-a-day-to-let-managers-step-away-and-developers-play/)
-with [Node.js](http://nodejs.org), [Express.js](http://expressjs.com), [Node Bootstrap](http://nodebootstrap.org)
+with [Node.js](http://nodejs.org), [Express.js](http://expressjs.com), [Node Bootstrap](http://nodebootstrap.org),
+[Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 and lots of love for Open Source Software + Journalism.
 
 ## License
