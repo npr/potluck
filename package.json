@@ -29,5 +29,6 @@
   , "pause"              : "0.x"
   , "send"               : "0.x"
   , "mkdirp"             : "0.x"
+  , "imagemagick"        : "0.x"
   }
 }
