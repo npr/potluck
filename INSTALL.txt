@@ -1,0 +1,7 @@
+REQUIREMENTS
+
+#. Linux
+#. Node.js/NVM/NPM
+#. MySQL
+#. AWS: EC2, RDS, CloudFront, S3
+#. ImageMagick
