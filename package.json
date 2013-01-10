@@ -1,28 +1,33 @@
 {
   "name" : "NPRPotluck"
-  ,"version" : "0.1.0"
-  ,"description" : "NPR Potluck"
-  ,"author" : "Irakli Nadareishvili, John Nelson"
-  ,"main" : "./server.js"
-  ,"repository": {
-      "type": "git",
-      "url": "https://github.com/npr/potluck"
+, "version" : "0.1.0"
+, "description" : "NPR Potluck"
+, "author" : "Irakli Nadareishvili, John Nelson"
+, "main" : "./server.js"
+, "repository": {
+    "type": "git"
+  , "url": "https://github.com/npr/potluck"
   }
-  ,"engines": {
-      "node": ">=0.8.8"
+, "engines": {
+    "node": ">=0.8.8"
   }
-  ,"dependencies": {
-    "fmt"                 : "0.4.x"
-    ,"yaml"               : ""
-    ,"express"            : "3.x"
-    ,"config"             : ""
-    ,"hbs"                : "1.x"
-    ,"less"               : "1.x"
-    ,"less-middleware"    : ""
-    ,"underscore"         : "1.x"
-    ,"awssum"             : "0.12.x"
-    ,"mysql"              : "2.x"
-    ,"async"              : "0.1.x"
-    ,"moment"             : "1.7.x"
+, "dependencies": {
+    "fmt"                : "0.4.x"
+  , "yaml"               : ""
+  , "express"            : "3.x"
+  , "config"             : ""
+  , "hbs"                : "1.x"
+  , "less"               : "1.x"
+  , "less-middleware"    : ""
+  , "underscore"         : "1.x"
+  , "underscore.string"  : "2.3.x"
+  , "awssum"             : "0.12.x"
+  , "mysql"              : "2.x"
+  , "async"              : "0.1.x"
+  , "moment"             : "1.7.x"
+  , "request"            : "2.x"
+  , "pause"              : "0.x"
+  , "send"               : "0.x"
+  , "mkdirp"             : "0.x"
   }
 }

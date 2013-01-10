@@ -2,6 +2,7 @@
 var util = require('util')
   , cluster = require('cluster')
   , express = require('express')
+  , thumbs = require('./lib/connect-thumbs')
   , app = express()
   , _ = require('underscore')
   , CONF = require('config')
@@ -25,6 +26,14 @@ app.configure(function() {
   app.set('view engine', 'handlebars');
   app.engine('handlebars', hbs.__express);
 
+  app.use(thumbs());
+
+  /**
+  app.use(thumbs({
+    rootURL: "/images"
+  , tmpPath: "/tmp"
+  , cache: true
+  }));**/
 
   app.use(express.bodyParser({ keepExtensions: true, uploadDir: '/tmp/files' }));
   app.use(express.methodOverride());
