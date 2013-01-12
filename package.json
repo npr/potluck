@@ -26,9 +26,8 @@
   , "async"              : "0.1.x"
   , "moment"             : "1.7.x"
   , "request"            : "2.x"
-  , "pause"              : "0.x"
-  , "send"               : "0.x"
   , "mkdirp"             : "0.x"
   , "imagemagick"        : "0.x"
+  , "connect-thumbs"     : "0.x"
   }
 }

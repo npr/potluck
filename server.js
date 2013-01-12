@@ -2,7 +2,7 @@
 var util = require('util')
   , cluster = require('cluster')
   , express = require('express')
-  , thumbs = require('./lib/connect-thumbs')
+  , thumbs = require('connect-thumbs')
   , app = express()
   , _ = require('underscore')
   , CONF = require('config')
