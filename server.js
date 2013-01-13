@@ -7,7 +7,11 @@ var util = require('util')
   , _ = require('underscore')
   , CONF = require('config')
   , less = require('less')
+  , log = require('tracer').console()
   , hbs = require('hbs');
+
+// Potluck libraries
+var asset = require('./lib/asset');
 
 //-- Useful extension to HBS
 require('./lib/handlebars-helpers.js')(hbs, __dirname + '/views/partials');
@@ -26,7 +30,9 @@ app.configure(function() {
   app.set('view engine', 'handlebars');
   app.engine('handlebars', hbs.__express);
 
-  app.use(thumbs());
+  app.use(thumbs({
+    "decodeFn": asset.lookup
+  }));
 
   /**
   app.use(thumbs({

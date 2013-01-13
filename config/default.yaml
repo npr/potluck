@@ -13,11 +13,7 @@ aws:
   bucket: AmazonS3Bucket
   cacheTTL: 86400
   cdnDomain: "potluckstage.s3.amazonaws.com"
+  thumbsCDNDomain: "CDN_Domain_Pointing_To_Node_Origin"
   S3region: US_EAST_1
   SQSregion: US_EAST_1
   SQSQueueName: potluck_stage
-mysql:
-  host: "your.db.host.com"
-  user: root
-  pass: password
-  database: databaseName
