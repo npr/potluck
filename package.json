@@ -28,6 +28,7 @@
   , "request"            : "2.x"
   , "mkdirp"             : "0.x"
   , "imagemagick"        : "0.x"
+  , "tracer"             : "0.x"
   , "connect-thumbs"     : "0.x"
   }
 }
