@@ -32,7 +32,8 @@ app.configure(function() {
 
   app.use(thumbs({
     "decodeFn": asset.lookup
-  , "ttl": 60*24*30
+  , "ttl": 3600*24*30
+  , "tmpCacheTTL": 3600*24*90
   }));
 
   /**
