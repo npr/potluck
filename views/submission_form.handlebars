@@ -24,18 +24,18 @@
     <div class="control-group">
         <label class="control-label" for="inputName">Your Name</label>
         <div class="controls">
-            <div class="input-prepend">
+            <div class="input-prepend span12">
                 <span class="add-on"><i class="icon-user"></i></span>
-                <input type="text" id="inputName" name="name" placeholder="Your Full Name" required>
+                <input class="span12" type="text" id="inputName" name="name" placeholder="Your Full Name" required>
             </div>
         </div>
     </div>
     <div class="control-group">
         <label class="control-label" for="inputEmail">Your Email</label>
         <div class="controls">
-            <div class="input-prepend">
+            <div class="input-prepend span12">
                 <span class="add-on"><i class="icon-envelope"></i></span>
-                <input type="text" id="inputEmail" name="email" placeholder="Email" required>
+                <input class="span12" type="text" id="inputEmail" name="email" placeholder="Email" required>
             </div>
         </div>
     </div>
@@ -71,16 +71,16 @@
             <!-- legend>File Upload #{{num}}:</legend -->
 
             <div class="control-group">
-                <label class="control-label" for="inputFile{{num}}">File</label>
+                <label class="control-label" for="inputFile{{num}}">Photo</label>
                 <div class="controls">
-                    <input type="file" id="inputFile{{num}}" name="assets[{{num}}]" required>
+                    <input type="file" id="inputFile{{num}}" name="assets[{{num}}]" required title="Choose File">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputCaption{{num}}">Caption</label>
                 <div class="controls">
-                    <textarea rows="5" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload" required></textarea>
+                    <textarea class="span12" rows="5" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload" required></textarea>
                     <div><span id="remainingCharacters{{num}}"></span> characters remaining.</div>
                     <!-- input type="text" id="inputCaption{{num}}" name="caption[{{num}}]" placeholder="Caption describing the upload" required-->
                 </div>
@@ -89,14 +89,14 @@
             <div class="control-group">
                 <label class="control-label" for="inputCopyright{{num}}">Copyright</label>
                 <div class="controls">
-                    <input type="text" id="inputCopyright{{num}}" name="copyright[{{num}}]" placeholder="Copyright Info">
+                    <input class="span12" type="text" id="inputCopyright{{num}}" name="copyright[{{num}}]" placeholder="Copyright Info">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputLocation{{num}}">Location</label>
                 <div class="controls">
-                    <input type="text" id="inputLocation{{num}}" name="location[{{num}}]" placeholder="Location Info">
+                    <input class="span12" type="text" id="inputLocation{{num}}" name="location[{{num}}]" placeholder="Location Info">
                 </div>
             </div>
 
