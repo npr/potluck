@@ -1,0 +1,11 @@
+<div id="curator">
+    {{view Ember.Select contentBinding="Curator.ApplicationController.content" selectionBinding="Curator.StoryController.selectedStory"
+    optionalLabelPath="content.name" optionalValuePath="content.id"}}
+    <button {{action loadStories}}>Load Stories</button>
+    <div id="curatorContainer">
+        {{view Curator.StoryView id="storyContainer" class="curator-container" controllerBinding="Curator.StoryController" }}
+
+        {{view Curator.AssetsView id="assetContainer" class="curator-container"}}
+
+    </div>
+</div>
