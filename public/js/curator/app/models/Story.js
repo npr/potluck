@@ -7,5 +7,6 @@ define(['ember-data'], function(DS){
    });
 
 
+
    return Story;
 });

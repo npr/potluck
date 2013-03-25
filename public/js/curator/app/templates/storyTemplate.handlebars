@@ -1,4 +1,6 @@
-Story - holler
-{{#each  Curator.StoryController.Story.storyItems }}
-    {{view Curator.StoryItemView contentBinding="storyItem"}}
+<h1>{{selectedStory.name}}</h1>
+{{#each  item in selectedStory.items }}
+    {{view Curator.StoryItemView contentBinding="item"}}
 {{/each}}
+
+<button {{action load}}> action </button>

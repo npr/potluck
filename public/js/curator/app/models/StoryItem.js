@@ -3,5 +3,6 @@ define(['ember-data'], function(DS){
         name: DS.attr('string')
     });
 
+
     return StoryItem;
 });

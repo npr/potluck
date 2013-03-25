@@ -3,7 +3,7 @@ define([
 ], function(Ember) {
 
     var AssetsView = Ember.ContainerView.extend({
-        childViews: [],
+        childViews: []
     });
     return AssetsView;
 });

@@ -1,18 +1,20 @@
 define([
+    "app/views/IndexView",
     "app/views/ApplicationView",
     "app/views/StoryView",
     "app/views/AssetsView",
     "app/views/StoryItemView",
-    "app/controllers/ApplicationController",
+    "app/controllers/IndexController",
     "app/controllers/StoryController",
     "app/controllers/AssetsController",
     "app/models/Story",
     "app/models/StoryItem",
-    "app/router",
+    "app/routes",
     'ember-data'
-], function(ApplicationView, StoryView, AssetsView, StoryItemView, ApplicationController, StoryController, AssetsController, Story, StoryItem, Router, DS){
+], function(IndexView, ApplicationView, StoryView, AssetsView, StoryItemView, IndexController, StoryController, AssetsController, Story, StoryItem, Routes, DS){
     /*Module Pattern*/
     var App = {
+        IndexView: IndexView,
         ApplicationView: ApplicationView,
         StoryItemView: StoryItemView,
         StoryView: StoryView,
@@ -21,18 +23,17 @@ define([
         Story: Story,
         StoryItem: StoryItem,
 
-        ApplicationController: ApplicationController,
+        IndexController: IndexController,
         StoryController: StoryController,
         AssetsContorller: AssetsController,
 
-        Router: Router,
-
-        Store: DS.Store.extend({
-            revision: 12,
-            adapter: 'DS.FixtureAdapter'
-        })
-
         };
+
+        //Lets add the routes
+        for( var attributeName in Routes){
+            App[attributeName] = Routes[attributeName];
+        }
+
 
     return App;
 });
