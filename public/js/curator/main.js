@@ -38,7 +38,7 @@
                 {
                     "id": 3,
                     "name": "The Storm",
-                    "items": [2,3]
+                    "items": [1,2,3]
                 }
             ];
             Curator.Store = DS.Store.extend({

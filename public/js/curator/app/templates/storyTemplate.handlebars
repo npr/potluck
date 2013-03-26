@@ -2,7 +2,6 @@
     <h1>{{content.name}}</h1>
     {{#each  item in content.items }}
         {{view Curator.StoryItemView contentBinding="item"}}
+        {{view Curator.DropableView}}
     {{/each}}
-
-    <button {{action loadItem}}> action </button>
 </div>
