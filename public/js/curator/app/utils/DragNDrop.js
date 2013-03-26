@@ -1,0 +1,3 @@
+define(["ember"], function(Ember){
+
+});

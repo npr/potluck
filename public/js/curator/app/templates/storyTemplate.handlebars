@@ -1,6 +1,8 @@
-<h1>{{selectedStory.name}}</h1>
-{{#each  item in selectedStory.items }}
-    {{view Curator.StoryItemView contentBinding="item"}}
-{{/each}}
+<div id="storyContainer" class="curator-container">
+    <h1>{{content.name}}</h1>
+    {{#each  item in content.items }}
+        {{view Curator.StoryItemView contentBinding="item"}}
+    {{/each}}
 
-<button {{action load}}> action </button>
+    <button {{action loadItem}}> action </button>
+</div>

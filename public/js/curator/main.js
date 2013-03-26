@@ -27,14 +27,17 @@
             Curator.Story.FIXTURES = [
                 {
                     "id": 1,
-                    "name": "Epic Story Bro",
-                    "name2": "name 2",
+                    "name": "Firehouse",
                     "items": [1,2]
                 },
                 {
                     "id": 2,
                     "name": "NPR Digital",
-                    "name2": "name 3",
+                    "items": [2,3]
+                },
+                {
+                    "id": 3,
+                    "name": "The Storm",
                     "items": [2,3]
                 }
             ];

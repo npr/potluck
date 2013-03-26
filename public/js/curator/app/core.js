@@ -4,16 +4,17 @@ define([
     "app/views/StoryView",
     "app/views/AssetsView",
     "app/views/StoryItemView",
-    "app/controllers/IndexController",
+    "app/controllers/ApplicationController",
     "app/controllers/StoryController",
     "app/controllers/AssetsController",
     "app/models/Story",
     "app/models/StoryItem",
     "app/routes",
     'ember-data'
-], function(IndexView, ApplicationView, StoryView, AssetsView, StoryItemView, IndexController, StoryController, AssetsController, Story, StoryItem, Routes, DS){
+], function(IndexView, ApplicationView, StoryView, AssetsView, StoryItemView, ApplicationController, StoryController, AssetsController, Story, StoryItem, Routes, DS){
     /*Module Pattern*/
     var App = {
+        rootElement : '#canvas',
         IndexView: IndexView,
         ApplicationView: ApplicationView,
         StoryItemView: StoryItemView,
@@ -23,7 +24,7 @@ define([
         Story: Story,
         StoryItem: StoryItem,
 
-        IndexController: IndexController,
+        ApplicationController: ApplicationController,
         StoryController: StoryController,
         AssetsContorller: AssetsController,
 
