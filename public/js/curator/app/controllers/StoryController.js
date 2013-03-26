@@ -1,8 +1,8 @@
 define(["ember"], function(Ember){
     var StoryController = Ember.ObjectController.extend({
-       loadItem: function(){
-           alert('hi');
-       }
+        currentDragItemObserver: function() {
+            this.set('currentDragItem', this.get('content.items').findProperty("isDragging", true));
+        }.observes('content.items.@each.isDragging')
     });
 
     return StoryController;

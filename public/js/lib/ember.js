@@ -18877,10 +18877,10 @@
          Ember objects. For example:
 
          ```handlebars
-         <img {{bindAttr src="imageUrl" alt="imageTitle"}}>
+         <images {{bindAttr src="imageUrl" alt="imageTitle"}}>
          ```
 
-         The above handlebars template will fill the `<img>`'s `src` attribute will
+         The above handlebars template will fill the `<images>`'s `src` attribute will
          the value of the property referenced with `"imageUrl"` and its `alt`
          attribute with the value of the property referenced with `"imageTitle"`.
 
@@ -18896,7 +18896,7 @@
          The resulting HTML output will be:
 
          ```html
-         <img src="http://lolcats.info/haz-a-funny" alt="A humorous image of a cat">
+         <images src="http://lolcats.info/haz-a-funny" alt="A humorous image of a cat">
          ```
 
          `bindAttr` cannot redeclare existing DOM element attributes. The use of `src`
@@ -18904,7 +18904,7 @@
          of `src="/failwhale.gif"` will take precedence:
 
          ```handlebars
-         <img src="/failwhale.gif" {{bindAttr src="imageUrl" alt="imageTitle"}}>
+         <images src="/failwhale.gif" {{bindAttr src="imageUrl" alt="imageTitle"}}>
          ```
 
          ### `bindAttr` and the `class` attribute
@@ -18931,13 +18931,13 @@
          ```
 
          ```handlebars
-         <img {{bindAttr class="view.someProperty}}>
+         <images {{bindAttr class="view.someProperty}}>
          ```
 
          Result in the following rendered output:
 
          ```html
-         <img class="aValue">
+         <images class="aValue">
          ```
 
          A boolean return value will insert a specified class name if the property
@@ -18953,13 +18953,13 @@
          ```
 
          ```handlebars
-         <img {{bindAttr class="view.someBool:class-name-if-true"}}>
+         <images {{bindAttr class="view.someBool:class-name-if-true"}}>
          ```
 
          Result in the following rendered output:
 
          ```html
-         <img class="class-name-if-true">
+         <images class="class-name-if-true">
          ```
 
          An additional section of the binding can be provided if you want to
@@ -18967,27 +18967,27 @@
          value changes:
 
          ```handlebars
-         <img {{bindAttr class="view.someBool:class-name-if-true:class-name-if-false"}}>
+         <images {{bindAttr class="view.someBool:class-name-if-true:class-name-if-false"}}>
          ```
 
          A hard-coded value can be used by prepending `:` to the desired
          class name: `:class-name-to-always-apply`.
 
          ```handlebars
-         <img {{bindAttr class=":class-name-to-always-apply"}}>
+         <images {{bindAttr class=":class-name-to-always-apply"}}>
          ```
 
          Results in the following rendered output:
 
          ```html
-         <img class=":class-name-to-always-apply">
+         <images class=":class-name-to-always-apply">
          ```
 
          All three strategies - string return value, boolean return value, and
          hard-coded value – can be combined in a single declaration:
 
          ```handlebars
-         <img {{bindAttr class=":class-name-to-always-apply view.someBool:class-name-if-true view.someProperty"}}>
+         <images {{bindAttr class=":class-name-to-always-apply view.someBool:class-name-if-true view.someProperty"}}>
          ```
 
          @method bindAttr

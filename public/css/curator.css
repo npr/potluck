@@ -28,6 +28,12 @@ body{
 .droppableArea{
     height:10px;
 }
+.droppableArea.story-droppable-region{
+    background-color: #dddddd;
+}
+.droppableArea.story-droppable-region:hover{
+    cursor: url("img/add.png")
+}
 #storyContainer{
     height: 100%;
     width: 75%;
