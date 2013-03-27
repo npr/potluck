@@ -17,8 +17,8 @@ define([
 
         }.property('dragContext'),
         drop: function(event){
-
-        }
+           var s="string";
+        }.property('index')
     });
 
     return IndexView;
