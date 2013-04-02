@@ -10,9 +10,10 @@ define([
     "app/controllers/AssetsController",
     "app/models/Story",
     "app/models/StoryItem",
+    "app/models/StoryItemOrder",
     "app/routes",
     "app/utils/DragNDrop"
-], function(IndexView, ApplicationView, StoryView, AssetsView, StoryItemView, DropableView, ApplicationController, StoryController, AssetsController, Story, StoryItem, Routes, DragNDrop){
+], function(IndexView, ApplicationView, StoryView, AssetsView, StoryItemView, DropableView, ApplicationController, StoryController, AssetsController, Story, StoryItem, StoryItemOrder, Routes, DragNDrop){
     /*Module Pattern*/
     var App = {
         rootElement : '#canvas',
@@ -25,6 +26,7 @@ define([
 
         Story: Story,
         StoryItem: StoryItem,
+        StoryItemOrder: StoryItemOrder,
 
         ApplicationController: ApplicationController,
         StoryController: StoryController,

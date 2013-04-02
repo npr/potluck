@@ -1,5 +1,5 @@
 define(["ember"], function(Ember){
-    var DragNDrop = Ember.Namespace.extend();
+    var ArrayUtil = Ember.Namespace.extend();
 
     DragNDrop.cancel = function(e) {
         if(e.preventDefault) { e.preventDefault(); }

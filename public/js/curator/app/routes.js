@@ -13,7 +13,7 @@ define(["ember"], function(Ember){
               });
           },
           model: function(){
-            return Curator.Story.find();
+            return Curator.Story.all();
           },
           setupController: function(controller, model){
             controller.set('stories', model);
