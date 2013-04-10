@@ -154,7 +154,10 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   data.buffer.push("  ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "order", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n");
+  data.buffer.push("\n\n<button ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "delete", "", {hash:{},contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Delete</button>");
   return buffer;
   
 });

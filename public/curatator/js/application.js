@@ -88,29 +88,42 @@ var StoryController = Ember.ObjectController.extend({
 			previousOrder = storyItemOrder.get('order')
 		}
 		var story = storyItemOrder.get('story');
-		
+		var _this = this;
 		story.get('storyItemOrders').forEach(function(item){
-			var order = item.get('order');
-			if(type == "new"){
-				order = ( order >= index? order + 1: order)
-			}else if (type == "reorder"){
-				if( ! Ember.isEqual(storyItemOrder, item)){
-					if( order < index ){
-						//Lets leave the current object where it is
-						//	But, if we have the bottom taken out from under it, move it down a node.
-						order = (order > previousOrder? order - 1 : order);
-					}else if( order >= index && order <= previousOrder){
-						//We are bumping the item up
-						order = order + 1;
-					}
-				}
-			}
-			
-			item.set('order', order)
+            _this._reorderItem(item, index, type, previousOrder)
 		});
 		//We have to reduce the index by one, because the droppable regions start before the story items
 		storyItemOrder.set('order', (((index >= story.get('storyItemOrders').get('length')) || ( index >= previousOrder)) ? index - 1: index));
-	}
+	},
+    delete: function ( storyItemOrder ){
+        var storyItemOrders = this.get('content').get('storyItemOrders');
+        var order = storyItemOrder.get('order')
+        storyItemOrders.removeObject(storyItemOrder)
+
+        var _this = this;
+        storyItemOrders.forEach(function(item){
+            _this._reorderItem(item, order, "delete")
+        });
+    },
+    _reorderItem: function ( storyOrderItem, index, type, previousOrder ){
+        var order = storyOrderItem.get('order');
+        if(type == "new"){
+            order = ( order >= index? order + 1: order)
+        }else if (type == "reorder"){
+            if( order < index ){
+                //Lets leave the current object where it is
+                //	But, if we have the bottom taken out from under it, move it down a node.
+                order = (order > previousOrder? order - 1 : order);
+            }else if( order >= index && order <= previousOrder){
+                //We are bumping the item up
+                order = order + 1;
+            }
+        }else if (type == "delete"){
+            order = (order > index ? order - 1: order);
+        }
+
+        storyOrderItem.set('order', order)
+    }
 });
 
 module.exports =  StoryController;
@@ -409,7 +422,10 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   data.buffer.push("  ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "order", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n");
+  data.buffer.push("\n\n<button ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "delete", "", {hash:{},contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Delete</button>");
   return buffer;
   
 });
@@ -47167,6 +47183,9 @@ var StoryItemOrderView = Ember.View.extend(DragNDrop.Draggable, {
     dragEnd: function(event) {
         // Let the controller know this view is done dragging
         this.set('content.isDragging', false);
+    },
+    delete: function(event){
+
     }
 });
 module.exports = StoryItemOrderView;

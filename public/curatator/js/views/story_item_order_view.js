@@ -11,6 +11,9 @@ var StoryItemOrderView = Ember.View.extend(DragNDrop.Draggable, {
     dragEnd: function(event) {
         // Let the controller know this view is done dragging
         this.set('content.isDragging', false);
+    },
+    delete: function(event){
+
     }
 });
 module.exports = StoryItemOrderView;
