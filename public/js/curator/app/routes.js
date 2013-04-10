@@ -1,4 +1,4 @@
-define(["ember"], function(Ember){
+define(["ember", "models/Story"], function(Ember, Story){
    var Routes = {
         ApplicationRoute: Ember.Route.extend({
           renderTemplate: function(){
@@ -13,7 +13,7 @@ define(["ember"], function(Ember){
               });
           },
           model: function(){
-            return Curator.Story.all();
+            return Story.all();
           },
           setupController: function(controller, model){
             controller.set('stories', model);

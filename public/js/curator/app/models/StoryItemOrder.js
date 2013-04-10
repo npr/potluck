@@ -1,10 +1,8 @@
-define(['ember-data', "app/models/Story", "app/models/StoryItem"], function(DS, Story, StoryItem){
-    var StoryItemOrder = DS.Model.extend({
-        order: DS.attr('number'),
-        story: DS.belongsTo('Curator.Story'),
-        storyItem: DS.belongsTo('Curator.StoryItem')
-    });
+define('models/StoryItemOrder',['ember-data', "models/Story", "models/StoryItem"], function(DS, Story, StoryItem){
+    "use strict";
+
+    return
 
 
-    return StoryItemOrder;
+
 });

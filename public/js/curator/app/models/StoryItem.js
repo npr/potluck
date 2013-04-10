@@ -1,9 +1,9 @@
-define(['ember-data'], function(DS){
-    var StoryItem = DS.Model.extend({
-        name: DS.attr('string')
+define('models/StoryItem',['ember-data', 'models/StoryItemOrder'], function(DS, StoryItemOrder){
+    "use strict";
+
+    return DS.Model.extend({
+        name: DS.attr('string'),
+        storyOrderItems: DS.hasMany(StoryItemOrder)
 
     });
-
-
-    return StoryItem;
 });
