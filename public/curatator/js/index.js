@@ -19,6 +19,7 @@ App.StoryItem = require('./models/story_item');
 App.StoryItemOrder = require('./models/story_item_order');
 App.ApplicationRoute = require('./routes/application_route');
 App.StoryRoute = require('./routes/story_route');
+App.AddTextView = require('./views/add_text_view');
 App.AssetView = require('./views/asset_view');
 App.DropableView = require('./views/dropable_view');
 App.StoryItemOrderView = require('./views/story_item_order_view');

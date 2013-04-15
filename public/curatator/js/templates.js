@@ -69,7 +69,12 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<div id=\"assetContainer\" class=\"curator-container\">\n    Assets\n	<div id=\"assetDrawer\">\n		");
+  data.buffer.push("<div id=\"assetContainer\" class=\"curator-container\">\n    Assets\n    ");
+  hashTypes = {'newTextBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.AddTextView", {hash:{
+    'newTextBinding': ("controller.newText")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n	<div id=\"assetDrawer\">\n		");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "assets", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }

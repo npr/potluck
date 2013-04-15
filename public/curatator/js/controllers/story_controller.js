@@ -1,13 +1,17 @@
+var StoryItem = require('../models/story_item')
+
 var StoryController = Ember.ObjectController.extend({
 	needs: ['assets'],
     currentDragItemObserver: function() {
 		var draggingStoryItemOrder = this.get('content').get('storyItemOrders').findProperty("isDragging", true);
 		var draggingStoryItem = App.StoryItem.all().findProperty("isDragging", true);
+        var newText  = this.get('controllers.assets.newText')
 		var currentDragItem = null;
 		currentDragItem =  ( ! Ember.isEmpty(draggingStoryItemOrder) ? draggingStoryItemOrder : currentDragItem);
-		currentDragItem =  ( ! Ember.isEmpty(draggingStoryItem) ? draggingStoryItem : currentDragItem)
+		currentDragItem =  ( ! Ember.isEmpty(draggingStoryItem) ? draggingStoryItem : currentDragItem);
+        currentDragItem =  ( newText ?  true : currentDragItem)
 		this.set('currentDragItem', currentDragItem);
-    }.observes('content.storyItemOrders.@each.isDragging', 'controllers.assets.assets.@each.isDragging'),
+    }.observes('content.storyItemOrders.@each.isDragging', 'controllers.assets.assets.@each.isDragging', 'controllers.assets.newText'),
 	unsetDragItem: function(){
 		var storyItemOrders = [];
 		var story = this.get('content');
@@ -59,7 +63,8 @@ var StoryController = Ember.ObjectController.extend({
     delete: function ( storyItemOrder ){
         var storyItemOrders = this.get('content').get('storyItemOrders');
         var order = storyItemOrder.get('order')
-        storyItemOrders.removeObject(storyItemOrder)
+        storyItemOrders.removeObject(storyItemOrder);
+        storyItemOrder.deleteRecord();
 
         var _this = this;
         storyItemOrders.forEach(function(item){

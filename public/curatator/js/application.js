@@ -24,8 +24,11 @@ var IndexController = Ember.Controller.extend({
 
 module.exports = IndexController;
 });require.register("controllers/assets_controller.js", function(module, exports, require, global){
+var StoryItem = require('../models/story_item')
+
 var AssetsController = Ember.Controller.extend({
 	storyItems: Ember.A([]),
+    newText: false,
 	assets: (function(){
 		return Ember.ArrayController.create({
 			content: this.get('storyItems')
@@ -37,16 +40,20 @@ var AssetsController = Ember.Controller.extend({
 module.exports = AssetsController;
 
 });require.register("controllers/story_controller.js", function(module, exports, require, global){
+var StoryItem = require('../models/story_item')
+
 var StoryController = Ember.ObjectController.extend({
 	needs: ['assets'],
     currentDragItemObserver: function() {
 		var draggingStoryItemOrder = this.get('content').get('storyItemOrders').findProperty("isDragging", true);
 		var draggingStoryItem = App.StoryItem.all().findProperty("isDragging", true);
+        var newText  = this.get('controllers.assets.newText')
 		var currentDragItem = null;
 		currentDragItem =  ( ! Ember.isEmpty(draggingStoryItemOrder) ? draggingStoryItemOrder : currentDragItem);
-		currentDragItem =  ( ! Ember.isEmpty(draggingStoryItem) ? draggingStoryItem : currentDragItem)
+		currentDragItem =  ( ! Ember.isEmpty(draggingStoryItem) ? draggingStoryItem : currentDragItem);
+        currentDragItem =  ( newText ?  true : currentDragItem)
 		this.set('currentDragItem', currentDragItem);
-    }.observes('content.storyItemOrders.@each.isDragging', 'controllers.assets.assets.@each.isDragging'),
+    }.observes('content.storyItemOrders.@each.isDragging', 'controllers.assets.assets.@each.isDragging', 'controllers.assets.newText'),
 	unsetDragItem: function(){
 		var storyItemOrders = [];
 		var story = this.get('content');
@@ -98,7 +105,8 @@ var StoryController = Ember.ObjectController.extend({
     delete: function ( storyItemOrder ){
         var storyItemOrders = this.get('content').get('storyItemOrders');
         var order = storyItemOrder.get('order')
-        storyItemOrders.removeObject(storyItemOrder)
+        storyItemOrders.removeObject(storyItemOrder);
+        storyItemOrder.deleteRecord();
 
         var _this = this;
         storyItemOrders.forEach(function(item){
@@ -149,6 +157,7 @@ App.StoryItem = require('./models/story_item');
 App.StoryItemOrder = require('./models/story_item_order');
 App.ApplicationRoute = require('./routes/application_route');
 App.StoryRoute = require('./routes/story_route');
+App.AddTextView = require('./views/add_text_view');
 App.AssetView = require('./views/asset_view');
 App.DropableView = require('./views/dropable_view');
 App.StoryItemOrderView = require('./views/story_item_order_view');
@@ -198,7 +207,9 @@ module.exports = Story;
 });require.register("models/story_item.js", function(module, exports, require, global){
 var StoryItem = DS.Model.extend({
     name: DS.attr('string'),
-    storyOrderItems: DS.hasMany('App.StoryItemOrder')
+    storyOrderItems: DS.hasMany('App.StoryItemOrder'),
+    type: 'image',
+    description: null
 
 });
 
@@ -337,7 +348,12 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<div id=\"assetContainer\" class=\"curator-container\">\n    Assets\n	<div id=\"assetDrawer\">\n		");
+  data.buffer.push("<div id=\"assetContainer\" class=\"curator-container\">\n    Assets\n    ");
+  hashTypes = {'newTextBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.AddTextView", {hash:{
+    'newTextBinding': ("controller.newText")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n	<div id=\"assetDrawer\">\n		");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "assets", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
@@ -47105,6 +47121,33 @@ DS.LSAdapter = DS.Adapter.extend(Ember.Evented, {
 });
 
 
+});require.register("views/add_text_view.js", function(module, exports, require, global){
+var DragNDrop = require('../mixins/drag_n_drop'),
+    StoryItem = require('../models/story_item')
+
+var AddTextView = Ember.View.extend(DragNDrop.Draggable, {
+    templateName: 'asset',
+    template: Ember.Handlebars.compile("<button>Add Text</button>"),
+    newText: false,
+    content:  (function(){
+        return StoryItem.createRecord({
+            type: 'text',
+            description: "Enter some text here"
+        })
+    }).property(),
+
+    dragStart: function(event) {
+        this._super(event);
+        this.set('newText', true);
+
+    },
+
+    dragEnd: function(event) {
+        // Let the controller know this view is done dragging
+        this.set('newText', false);
+    }
+});
+module.exports = AddTextView;
 });require.register("views/asset_view.js", function(module, exports, require, global){
 var DragNDrop = require('../mixins/drag_n_drop')
 
