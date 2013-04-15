@@ -2,6 +2,7 @@ var DragNDrop = require('../mixins/drag_n_drop')
 
 var StoryItemOrderView = Ember.View.extend(DragNDrop.Draggable, {
     type: "image",
+    isEditing: false,
     templateName: function() {
         this.set('type', this.get("content.storyItem.type"))
         var templateName = "story_item_image_order";
@@ -25,6 +26,14 @@ var StoryItemOrderView = Ember.View.extend(DragNDrop.Draggable, {
     dragEnd: function(event) {
         // Let the controller know this view is done dragging
         this.set('content.isDragging', false);
+    },
+    doubleClick: function(event){
+        if(this.get('type') == "text"){
+            this.set('isEditing', true);
+        }
+    },
+    save: function(event){
+        this.set('isEditing', false)
     }
 });
 module.exports = StoryItemOrderView;
