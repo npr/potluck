@@ -5,12 +5,12 @@ var AddTextView = Ember.View.extend(DragNDrop.Draggable, {
     templateName: 'asset',
     template: Ember.Handlebars.compile("<button>Add Text</button>"),
     newText: false,
-    content:  (function(){
+    content:  function(){
         return StoryItem.createRecord({
             type: 'text',
             description: "Enter some text here"
         })
-    }).property(),
+    },
 
     dragStart: function(event) {
         this._super(event);
@@ -18,7 +18,7 @@ var AddTextView = Ember.View.extend(DragNDrop.Draggable, {
 
     },
 
-    dragEnd: function(event) {
+    dragEnd: function(vent) {
         // Let the controller know this view is done dragging
         this.set('newText', false);
     }

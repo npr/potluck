@@ -1,4 +1,5 @@
-var DragNDrop = require('../mixins/drag_n_drop')
+var DragNDrop = require('../mixins/drag_n_drop'),
+    AddTextView = require('./add_text_view')
 
 var DropableView = Ember.View.extend(DragNDrop.Droppable, {
        tagName: "div",
@@ -29,10 +30,14 @@ var DropableView = Ember.View.extend(DragNDrop.Droppable, {
 			this._super(event);
             var viewId = event.originalEvent.dataTransfer.getData('Text'),
                 view = Ember.View.views[viewId],
-				controller = this.get('controller');
+				controller = this.get('controller'),
+                storyItem = view.get('content');
 
-				
-            controller.send('reorderStoryItem', this.get('index'), view.get('content'));
+            if(view instanceof AddTextView){
+                storyItem = view.content();
+            }
+
+            controller.send('reorderStoryItem', this.get('index'), storyItem);
 			controller.send('unsetDragItem');
 
 

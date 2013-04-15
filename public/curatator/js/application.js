@@ -209,7 +209,13 @@ var StoryItem = DS.Model.extend({
     name: DS.attr('string'),
     storyOrderItems: DS.hasMany('App.StoryItemOrder'),
     type: 'image',
-    description: null
+    description: null,
+    isTextItem: function(){
+        return this.get('type') == 'text';
+    },
+    isImageItem: function(){
+        return this.get('type') == 'image';
+    }
 
 });
 
@@ -47169,12 +47175,12 @@ var AddTextView = Ember.View.extend(DragNDrop.Draggable, {
     templateName: 'asset',
     template: Ember.Handlebars.compile("<button>Add Text</button>"),
     newText: false,
-    content:  (function(){
+    content:  function(){
         return StoryItem.createRecord({
             type: 'text',
             description: "Enter some text here"
         })
-    }).property(),
+    },
 
     dragStart: function(event) {
         this._super(event);
@@ -47182,7 +47188,7 @@ var AddTextView = Ember.View.extend(DragNDrop.Draggable, {
 
     },
 
-    dragEnd: function(event) {
+    dragEnd: function(vent) {
         // Let the controller know this view is done dragging
         this.set('newText', false);
     }
@@ -47206,7 +47212,8 @@ var AssetView = Ember.View.extend(DragNDrop.Draggable, {
 });
 module.exports = AssetView;
 });require.register("views/dropable_view.js", function(module, exports, require, global){
-var DragNDrop = require('../mixins/drag_n_drop')
+var DragNDrop = require('../mixins/drag_n_drop'),
+    AddTextView = require('./add_text_view')
 
 var DropableView = Ember.View.extend(DragNDrop.Droppable, {
        tagName: "div",
@@ -47237,10 +47244,14 @@ var DropableView = Ember.View.extend(DragNDrop.Droppable, {
 			this._super(event);
             var viewId = event.originalEvent.dataTransfer.getData('Text'),
                 view = Ember.View.views[viewId],
-				controller = this.get('controller');
+				controller = this.get('controller'),
+                storyItem = view.get('content');
 
-				
-            controller.send('reorderStoryItem', this.get('index'), view.get('content'));
+            if(view instanceof AddTextView){
+                storyItem = view.content();
+            }
+
+            controller.send('reorderStoryItem', this.get('index'), storyItem);
 			controller.send('unsetDragItem');
 
 
