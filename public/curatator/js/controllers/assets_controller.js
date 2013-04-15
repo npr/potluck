@@ -5,7 +5,7 @@ var AssetsController = Ember.Controller.extend({
     newText: false,
 	assets: (function(){
 		return Ember.ArrayController.create({
-			content: this.get('storyItems')
+			content: this.get('storyItems').filterProperty("type", "image")
 		});
 	}).property('storyItems')
 });
