@@ -1,0 +1,12 @@
+<div id="curator">
+    {{view Ember.Select contentBinding="stories" selectionBinding="selectedStory"
+    optionLabelPath="content.name" optionValuePath="content.id"
+    prompt="Choose a story"}}
+    {{#linkTo story selectedStory}}Curate {{selectedStory.name}}{{/linkTo}}
+    <div id="curatorContainer">
+        {{outlet story}}
+
+        {{outlet assets}}
+
+    </div>
+</div>

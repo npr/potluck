@@ -56,7 +56,7 @@ app.configure(function() {
   // Additionally you should probably precompile your LESS stylesheets in production
   // Last, but not least: Express' default error handler is very useful in dev, but probably not in prod.
   if ((typeof process.env['NODE_SERVE_STATIC'] !== 'undefined') && process.env['NODE_SERVE_STATIC'] == 1) {
-      app.use(require('less-middleware')({ src: pub_dir }));
+      app.use(require('less-middleware')({ src: pub_dir+"/css/less", dest: pub_dir + "/css", force:true}));
       app.use(express.static(pub_dir));
       app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
   }

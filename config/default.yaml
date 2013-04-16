@@ -6,6 +6,11 @@ app:
   max_resources_num: 1
   submission_msg_char_limit: 700
   cookie_secret: "your secret key salt goes here"
+mysql:
+  host: localhost
+  user: root
+  pass: password
+  database: potluck
 aws:
   accountID: AmazonAccountId
   accessKeyId: AmazonAWSAccessKeyId
