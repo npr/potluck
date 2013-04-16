@@ -1,0 +1,8 @@
+<div id="storyContainer" class="curator-container">
+    <h1>{{content.name}}</h1>
+    	{{view App.DropableView dragContextBinding="controller.currentDragItem" }}
+        {{#each sortedStoryItems}}
+            {{view App.StoryItemOrderView contentBinding="this" classNames="story-item"}}
+            {{view App.DropableView dragContextBinding="controller.currentDragItem" }}
+        {{/each}}
+</div>

@@ -1,0 +1,16 @@
+app:
+  port: 3008
+aws:
+  accountID: '2559-9003-3474'
+  accessKeyId: AKIAJNA3QS2AGVCXHCCA
+  secretKey: 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
+  bucket: potluckstage
+  S3region: US_EAST_1
+  SQSregion: US_EAST_1
+  SQSQueueName: 'potluckstage'
+  thumbsCDNDomain: "irakli.potluck.nprdev.org"
+mysql:
+  host: "potluck.clfqth593hf5.us-east-1.rds.amazonaws.com"
+  user: root
+  pass: rootPassword
+  database: potluckstage

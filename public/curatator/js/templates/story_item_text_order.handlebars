@@ -1,0 +1,6 @@
+{{#if view.isEditing}}
+    {{view Ember.TextArea valueBinding="storyItem.description" rows="4"}}
+    <button {{action save target="view" }} >Save</button>
+{{else}}
+    {{storyItem.description}}
+{{/if}}

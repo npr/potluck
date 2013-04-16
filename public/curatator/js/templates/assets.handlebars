@@ -1,0 +1,11 @@
+<div id="assetContainer" class="curator-container">
+    Assets
+    {{view App.AddTextView newTextBinding="controller.newText" }}
+	<div id="assetDrawer">
+		{{#each assets}}
+			{{view App.AssetView contentBinding="this" classNames="asset"}}
+        {{/each}}
+	</div>
+    {{view App.StoryItemPreviewView previewBinding="controller.previewItem" }}
+</div>
+
