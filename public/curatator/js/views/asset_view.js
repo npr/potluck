@@ -11,6 +11,10 @@ var AssetView = Ember.View.extend(DragNDrop.Draggable, {
     dragEnd: function(event) {
         // Let the controller know this view is done dragging
         this.set('content.isDragging', false);
+    },
+    doubleClick: function(event){
+        var controller = this.get('controller');
+        controller.set('previewItem', this.get('content'))
     }
 });
 module.exports = AssetView;

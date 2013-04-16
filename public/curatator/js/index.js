@@ -23,6 +23,7 @@ App.AddTextView = require('./views/add_text_view');
 App.AssetView = require('./views/asset_view');
 App.DropableView = require('./views/dropable_view');
 App.StoryItemOrderView = require('./views/story_item_order_view');
+App.StoryItemPreviewView = require('./views/story_item_preview_view');
 App.DragNDrop = require('./mixins/drag_n_drop');
 
 require('./routes');

@@ -24,7 +24,7 @@ var IndexController = Ember.Controller.extend({
 
 module.exports = IndexController;
 });require.register("controllers/assets_controller.js", function(module, exports, require, global){
-var StoryItem = require('../models/story_item')
+var StoryItem = require('../models/story_item');
 
 var AssetsController = Ember.Controller.extend({
 	storyItems: Ember.A([]),
@@ -33,7 +33,11 @@ var AssetsController = Ember.Controller.extend({
 		return Ember.ArrayController.create({
 			content: this.get('storyItems').filterProperty("type", "image")
 		});
-	}).property('storyItems')
+	}).property('storyItems'),
+    previewItem: null,
+    closePreview: function( event ){
+        this.set('previewItem', null)
+    }
 });
 
 
@@ -161,6 +165,7 @@ App.AddTextView = require('./views/add_text_view');
 App.AssetView = require('./views/asset_view');
 App.DropableView = require('./views/dropable_view');
 App.StoryItemOrderView = require('./views/story_item_order_view');
+App.StoryItemPreviewView = require('./views/story_item_preview_view');
 App.DragNDrop = require('./mixins/drag_n_drop');
 
 require('./routes');
@@ -350,7 +355,7 @@ function program1(depth0,data) {
     'contentBinding': ("this"),
     'classNames': ("asset")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n		");
+  data.buffer.push("\n        ");
   return buffer;
   }
 
@@ -363,7 +368,12 @@ function program1(depth0,data) {
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "assets", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n	</div>\n	\n</div>\n\n");
+  data.buffer.push("\n	</div>\n    ");
+  hashTypes = {'previewBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.StoryItemPreviewView", {hash:{
+    'previewBinding': ("controller.previewItem")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n</div>\n\n");
   return buffer;
   
 });
@@ -448,6 +458,32 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "delete", "", {hash:{},contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(">Delete</button>");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES['story_item_preview'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Ember.Handlebars.helpers; data = data || {};
+  var buffer = '', stack1, hashTypes, escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', hashTypes;
+  data.buffer.push("\n<div id=\"preview\">\n    <h1>");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "previewItem.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("</h1>\n\n    <button ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "closePreview", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Close</button>\n</div>\n");
+  return buffer;
+  }
+
+  hashTypes = {};
+  stack1 = helpers['if'].call(depth0, "previewItem", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n\n");
   return buffer;
   
 });
@@ -47208,6 +47244,10 @@ var AssetView = Ember.View.extend(DragNDrop.Draggable, {
     dragEnd: function(event) {
         // Let the controller know this view is done dragging
         this.set('content.isDragging', false);
+    },
+    doubleClick: function(event){
+        var controller = this.get('controller');
+        controller.set('previewItem', this.get('content'))
     }
 });
 module.exports = AssetView;
@@ -47303,5 +47343,11 @@ var StoryItemOrderView = Ember.View.extend(DragNDrop.Draggable, {
     }
 });
 module.exports = StoryItemOrderView;
+});require.register("views/story_item_preview_view.js", function(module, exports, require, global){
+
+var StoryItemPreviewView = Ember.View.extend({
+    templateName: 'story_item_preview'
+});
+module.exports = StoryItemPreviewView;
 });var exp = require('index');if ("undefined" != typeof module) module.exports = exp;else index = exp;
 })();

@@ -1,4 +1,4 @@
-var StoryItem = require('../models/story_item')
+var StoryItem = require('../models/story_item');
 
 var AssetsController = Ember.Controller.extend({
 	storyItems: Ember.A([]),
@@ -7,7 +7,11 @@ var AssetsController = Ember.Controller.extend({
 		return Ember.ArrayController.create({
 			content: this.get('storyItems').filterProperty("type", "image")
 		});
-	}).property('storyItems')
+	}).property('storyItems'),
+    previewItem: null,
+    closePreview: function( event ){
+        this.set('previewItem', null)
+    }
 });
 
 

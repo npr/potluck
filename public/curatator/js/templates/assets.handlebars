@@ -4,8 +4,8 @@
 	<div id="assetDrawer">
 		{{#each assets}}
 			{{view App.AssetView contentBinding="this" classNames="asset"}}
-		{{/each}}
+        {{/each}}
 	</div>
-	
+    {{view App.StoryItemPreviewView previewBinding="controller.previewItem" }}
 </div>
 
